@@ -3,7 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"go-study-lib/log"
+	"github.com/davidhong101/go-study-lib/log"
+	"github.com/pkg/errors"
 	"os"
 	"os/signal"
 	"week02/dao"
@@ -19,15 +20,18 @@ import (
 
 var dos = []dao.DoSomething{
 	{
-		Who:   "davidhong",
-		Thing: "learn go",
+		Who:    "davidhong",
+		Action: "learn",
+		Thing:  "go",
 	}, {
-		Who:   "davidhong",
-		Thing: "have lunch",
+		Who:    "davidhong",
+		Action: "eat",
+		Thing:  "lunch",
 	},
 	{
-		Who:   "davidhong",
-		Thing: "do something",
+		Who:    "davidhong",
+		Action: "do",
+		Thing:  "something",
 	},
 }
 
@@ -38,23 +42,25 @@ func main() {
 
 	ctx := context.TODO()
 
-	// init sql connector
-	err := dao.InitDB()
+	// init db
+	err := dao.InitDB("dbinfo.json")
 	if err != nil {
-		panic(fmt.Sprintf("InitDB fail. err: %v", err))
+		panic(fmt.Sprintf("init db connector fail. err: %v", err))
 	}
 
 	// init data
 	for _, do := range dos {
 		err := do.Delete(ctx)
 		if err != nil {
-			log.ERROR("delete %v fail.", do)
+			log.ERROR("delete %v fail. err: %+v", do, err)
+			panic(fmt.Sprintf("init data fail. err: %v", err))
 		}
 	}
 	for _, do := range dos[:len(dos)-1] {
 		err := do.Insert(ctx)
 		if err != nil {
-			log.ERROR("delete %v fail.", do)
+			log.ERROR("delete %v fail. err: %+v", do, err)
+			panic(fmt.Sprintf("init data fail. err: %v", err))
 		}
 	}
 
@@ -63,6 +69,7 @@ func main() {
 		err := GetDoSomething(ctx, &do)
 		if err != nil {
 			log.ERROR("Get %v err. err: %+v", do, err)
+			continue
 		}
 		log.INFO("GetDoSomething %v", do)
 	}
@@ -75,7 +82,7 @@ func main() {
 			dao.CloseDB()
 			os.Exit(1)
 		case <-c:
-			log.INFO("exit by signal %v.", c)
+			log.INFO("exit by signal.")
 			dao.CloseDB()
 			os.Exit(0)
 		}
@@ -85,7 +92,7 @@ func main() {
 func GetDoSomething(ctx context.Context, do *dao.DoSomething) error {
 	err := do.Get(ctx)
 	if err != nil {
-		return err
+		return errors.Wrapf(err, "GetDoSomething fail. do: %v", do)
 	}
 	return nil
 }

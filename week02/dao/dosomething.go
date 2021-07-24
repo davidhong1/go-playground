@@ -17,7 +17,7 @@ type DoSomething struct {
 }
 
 func (d *DoSomething) Insert(ctx context.Context) error {
-	sqlS := `INSERT INTO dosomething(who, action, thing, more) VALUES(?, ?, ?, ?)`
+	sqlS := "INSERT INTO do_something(who, `action`, thing, `more`) VALUES(?, ?, ?, ?)"
 
 	res, err := sqlxDB.ExecContext(ctx, sqlS, d.Who, d.Action, d.Thing, d.More)
 	if err != nil {
@@ -29,13 +29,13 @@ func (d *DoSomething) Insert(ctx context.Context) error {
 }
 
 func (d *DoSomething) Get(ctx context.Context) error {
-	sqlS := `SELECT * FROM dosomething WHERE who = ? AND action = ? AND thing = ?`
+	sqlS := "SELECT * FROM do_something WHERE who = ? AND `action` = ? AND thing = ?"
 
-	return sqlxDB.GetContext(ctx, sqlS, d.Who, d.Action, d.Thing)
+	return sqlxDB.GetContext(ctx, d, sqlS, d.Who, d.Action, d.Thing)
 }
 
 func (d *DoSomething) Delete(ctx context.Context) error {
-	sqlS := `DELETE FROM dosomething WHERE who = ? AND action = ? AND thing = ?`
+	sqlS := "DELETE FROM do_something WHERE who = ? AND `action` = ? AND thing = ?"
 
 	_, err := sqlxDB.ExecContext(ctx, sqlS, d.Who, d.Action, d.Thing)
 	if err != nil {

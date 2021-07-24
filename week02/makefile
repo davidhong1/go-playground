@@ -6,3 +6,6 @@ dep:
 
 run:
 	go run main.go
+
+build:
+	go build -o bin/week02 main.go
