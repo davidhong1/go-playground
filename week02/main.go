@@ -45,7 +45,7 @@ func main() {
 	// init db
 	err := dao.InitDB("dbinfo.json")
 	if err != nil {
-		panic(fmt.Sprintf("init db connector fail. err: %v", err))
+		panic(fmt.Sprintf("init db connector fail. err: %+v", err))
 	}
 
 	// init data
@@ -53,14 +53,14 @@ func main() {
 		err := do.Delete(ctx)
 		if err != nil {
 			log.ERROR("delete %v fail. err: %+v", do, err)
-			panic(fmt.Sprintf("init data fail. err: %v", err))
+			panic(fmt.Sprintf("init data fail. err: %+v", err))
 		}
 	}
 	for _, do := range dos[:len(dos)-1] {
 		err := do.Insert(ctx)
 		if err != nil {
 			log.ERROR("delete %v fail. err: %+v", do, err)
-			panic(fmt.Sprintf("init data fail. err: %v", err))
+			panic(fmt.Sprintf("init data fail. err: %+v", err))
 		}
 	}
 
