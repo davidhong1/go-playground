@@ -1,3 +1,3 @@
-module go-study-lib
+module github.com/davidhong101/go-study/go-study-lib
 
 go 1.16
