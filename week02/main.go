@@ -47,6 +47,7 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("init db connector fail. err: %+v", err))
 	}
+	defer dao.CloseDB()
 
 	// init data
 	for _, do := range dos {
@@ -79,11 +80,9 @@ func main() {
 		select {
 		case <-ctx.Done():
 			log.ERROR("exit by context done.")
-			dao.CloseDB()
 			os.Exit(1)
 		case <-c:
 			log.INFO("exit by signal.")
-			dao.CloseDB()
 			os.Exit(0)
 		}
 	}
