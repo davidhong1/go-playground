@@ -1,3 +1,6 @@
 go 1.20
 
-use ./program-to-interface
+use (
+	./error-hell
+	./program-to-interface
+)
