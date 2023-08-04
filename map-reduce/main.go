@@ -5,6 +5,7 @@ import (
 	"map-reduce/main02"
 	"map-reduce/main03"
 	"map-reduce/main04"
+	"map-reduce/main05"
 )
 
 func main() {
@@ -13,4 +14,5 @@ func main() {
 	main03.Demo()
 	// main03.PanicDemo()
 	main04.Demo()
+	main05.Demo()
 }
