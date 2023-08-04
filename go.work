@@ -5,5 +5,6 @@ use (
 	./function-options
 	./go-with-kafka
 	./ioc-dip
+	./map-reduce
 	./program-to-interface
 )

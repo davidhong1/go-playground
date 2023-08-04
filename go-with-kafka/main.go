@@ -20,7 +20,7 @@ func main() {
 	// Consuming can either be direct (no consumer group), or through a group. Below, we use a group.
 	cl, err := kgo.NewClient(
 		kgo.SeedBrokers(seeds...),
-		kgo.ConsumerGroup(consumerGroup),
+		kgo.ConsumerGroup(consumerGroup), // 有消费者时，消费消息后 offset 才会偏移
 		kgo.ConsumeTopics(topic),
 	)
 	if err != nil {
