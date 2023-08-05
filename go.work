@@ -4,6 +4,7 @@ use (
 	./error-hell
 	./function-options
 	./go-decorator
+	./go-pipeline
 	./go-with-kafka
 	./ioc-dip
 	./map-reduce
