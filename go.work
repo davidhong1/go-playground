@@ -5,6 +5,7 @@ use (
 	./function-options
 	./go-decorator
 	./go-pipeline
+	./go-visitor
 	./go-with-kafka
 	./ioc-dip
 	./map-reduce
