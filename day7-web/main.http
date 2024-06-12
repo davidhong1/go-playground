@@ -24,3 +24,11 @@ POST http://localhost:9999/login
 Content-Type: application/x-www-form-urlencoded
 
 username=your_username&password=your_password
+
+###
+GET http://localhost:9999/hello/geektutu
+
+###
+GET http://localhost:9999/assets/css/geektutu.css
+
+###
