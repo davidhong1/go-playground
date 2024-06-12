@@ -1,6 +1,7 @@
-go 1.20
+go 1.22.4
 
 use (
+	./day7-web
 	./error-hell
 	./function-options
 	./go-decorator
