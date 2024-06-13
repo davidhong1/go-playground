@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{.title}}</title>
+</head>
+<body>
+    <h1>Title: {{.title}}</h1>
+    {{range .stuArr}}
+        <div>
+            <h2>Name: {{.Name}}</h2>
+            <p>Age: {{.Age}}</p>
+        </div>
+    {{end}}
+</body>
+</html>
