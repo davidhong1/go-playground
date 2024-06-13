@@ -1,16 +1,7 @@
 ###
-GET http://localhost:9999/v1/
+GET http://localhost:9999/
 
 ###
-GET http://localhost:9999/v1/hello
-
-###
-GET http://localhost:9999/v2/hello/geektutu
-
-###
-POST http://localhost:9999/v2/login
-Content-Type: application/x-www-form-urlencoded
-
-username=ok&password=pw
+GET http://localhost:9999/panic
 
 ###
