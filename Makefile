@@ -1,2 +1,2 @@
 all:
-	go run day7-web/main.go
+	go run day7-cache/main.go

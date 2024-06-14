@@ -1,0 +1,7 @@
+###
+GET http://localhost:9999/_geecache/scores/Tom
+
+###
+GET http://localhost:9999/_geecache/scores/kkk
+
+###
