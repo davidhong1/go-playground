@@ -4,6 +4,8 @@ package geecachepb;
 
 option go_package = "geecachepb/";
 
+// Create go use: protoc --go_out=. *.proto
+
 message Request {
   string group = 1;
   string key = 2;
