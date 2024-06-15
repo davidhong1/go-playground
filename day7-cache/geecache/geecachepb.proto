@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package geecachepb;
 
-option go_package = "geecachepb/";
-
 // Create go use: protoc --go_out=. *.proto
+// Need this
+option go_package = "geecachepb/";
 
 message Request {
   string group = 1;
