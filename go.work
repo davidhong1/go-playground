@@ -6,11 +6,15 @@ use (
 	./day7-web
 	./error-hell
 	./function-options
+	./generics
 	./go-decorator
 	./go-pipeline
+	./go-reverse-proxy
 	./go-visitor
 	./go-with-kafka
+	./http-io-timeout
 	./ioc-dip
 	./map-reduce
 	./program-to-interface
+	./unsafe-pointer
 )
