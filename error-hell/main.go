@@ -3,10 +3,10 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"error-hell/main01"
-	"error-hell/main02"
-	"error-hell/main03"
 	"error-hell/model"
+	"error-hell/play01"
+	"error-hell/play02"
+	"error-hell/play03"
 	"fmt"
 )
 
@@ -26,7 +26,7 @@ func main() {
 
 	r := bytes.NewReader(bs)
 
-	p, err := main01.Parse(r)
+	p, err := play01.Parse(r)
 	if err != nil {
 		panic(err)
 	}
@@ -34,7 +34,7 @@ func main() {
 
 	r = bytes.NewReader(bs)
 
-	p, err = main02.Parse(r)
+	p, err = play02.Parse(r)
 	if err != nil {
 		panic(err)
 	}
@@ -43,7 +43,7 @@ func main() {
 
 	r = bytes.NewReader(bs)
 
-	p, err = main03.Parse(r)
+	p, err = play03.Parse(r)
 	if err != nil {
 		panic(err)
 	}

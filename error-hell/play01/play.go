@@ -1,4 +1,4 @@
-package main01
+package play01
 
 import (
 	"encoding/binary"
